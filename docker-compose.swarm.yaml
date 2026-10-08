@@ -44,6 +44,21 @@ services:
   evocrm_gateway:
     image: evoapicloud/evo-crm-gateway:latest
 
+    ## FIX 2026-10-07 (docs/fixes/): as imagens publicadas ate 1.1.0 roteiam errado:
+    ##  1) /api/v1/integration-credentials e /api/v1/integrations/knowledge-nexus
+    ##     caem no CRM -> 404 (devem ir ao core)
+    ##  2) /api/v1/agents/:id/integrations/<provider> vai todo para o processor,
+    ##     que so atende os providers OAuth -> dify/flowise/n8n/openai/typebot = 404
+    ## Os sed corrigem o template na subida; numa imagem ja corrigida nao fazem nada.
+    entrypoint:
+      - sh
+      - -c
+      - |
+        T=/etc/nginx/templates/default.conf.template
+        sed -i 's#custom-mcp-servers|custom-tools)#custom-mcp-servers|custom-tools|integration-credentials|integrations/knowledge-nexus)#' $$T
+        sed -i 's#/integrations/ {#/integrations/(asana|atlassian|canva|github|google-calendar|google-sheets|hubspot|linear|monday|notion|paypal|supabase)(/|$$) {#' $$T
+        exec /docker-entrypoint.sh nginx -g 'daemon off;'
+
     networks:
       - evonet ## Nome da rede interna
 
