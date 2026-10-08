@@ -7,7 +7,7 @@
 [submodule "evo-ai-frontend-community"]
 	path = evo-ai-frontend-community
 	url = https://github.com/mendoncart/evo-ai-frontend-community.git
-	branch = fix/external-agent-config-state
+	branch = main
 [submodule "evo-ai-processor-community"]
 	path = evo-ai-processor-community
 	url = https://github.com/evolution-foundation/evo-ai-processor-community.git
