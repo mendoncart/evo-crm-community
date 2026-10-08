@@ -10,7 +10,8 @@
 	branch = main
 [submodule "evo-ai-processor-community"]
 	path = evo-ai-processor-community
-	url = https://github.com/evolution-foundation/evo-ai-processor-community.git
+	url = https://github.com/mendoncart/evo-ai-processor-community.git
+	branch = main
 [submodule "evo-ai-core-service-community"]
 	path = evo-ai-core-service-community
 	url = https://github.com/evolution-foundation/evo-ai-core-service-community.git

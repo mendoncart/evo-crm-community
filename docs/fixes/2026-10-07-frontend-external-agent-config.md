@@ -3,6 +3,7 @@
 - **Tipo:** fix
 - **Data:** 2026-10-07
 - **Versão afetada:** `evoapicloud/evo-ai-frontend-community` até 1.1.0
+- **Imagem corrigida:** `ghcr.io/mendoncart/evo-ai-frontend-community:1.1.0-rtm.1`
 - **Arquivos alterados:**
   - `evo-ai-frontend-community/src/components/agents/configuration/ModelApiPanel.tsx`
   - `evo-ai-frontend-community/src/components/agents/AgentWizardModal.tsx`
